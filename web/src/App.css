@@ -4,7 +4,21 @@ h1 {
   margin-top: 2%;
 }
 
-input {
-  text-align: center;
-  margin: 10% 40%;
+.dirInput {
+  width: 80%;
+  margin: 5% 10%;
+  padding: 20px 15px;
+}
+
+.submitBtn {
+  background-color: #0f0f4a;
+  color: #fff;
+  border: 0;
+  padding: 10px 20px;
+  margin: 0 45%;
+}
+
+.submitBtn:hover {
+  color: #0f0f4a;
+  background-color: #fff;
 }

@@ -1,18 +1,17 @@
-import React from 'react';
-import Dropzone from "./dropzone/Dropzone";
+import React, { useState } from 'react';
 import './App.css';
 import './global.css';
 import api from './services/api';
 
 function App() {
-  async function handleSelect(files) {
-    const formData = new FormData();
+  const [dir, setDir] = useState('');
 
-    files.forEach(file => {
-      formData.append('file', file);
+  async function handleSubmit() {
+    const response = await api.post('/main', {
+      dir
     });
 
-    await api.get('/main', formData);
+    console.log(response);
   }
 
   return (
@@ -20,7 +19,15 @@ function App() {
       <h1>
         Hello, let's fix your files!
       </h1>
-      <Dropzone onFilesAdded={handleSelect} />
+      <input
+        type="text"
+        name="dir"
+        value={dir.toString()}
+        onChange={(value) => setDir(value.target.value)}
+        placeholder="Directory"
+        className="dirInput"
+      />
+      <input className="submitBtn" type="submit" onClick={handleSubmit} value="Submit" />
     </div>
   );
 }
