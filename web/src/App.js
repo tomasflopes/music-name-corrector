@@ -5,13 +5,14 @@ import api from './services/api';
 
 function App() {
   const [dir, setDir] = useState('');
+  const [data, setData] = useState([]);
 
   async function handleSubmit() {
     const response = await api.post('/main', {
       dir
     });
 
-    console.log(response);
+    setData(response.data);
   }
 
   return (
@@ -28,6 +29,11 @@ function App() {
         className="dirInput"
       />
       <input className="submitBtn" type="submit" onClick={handleSubmit} value="Submit" />
+      {
+        data.map((info, index) => (
+          <h2 key={index}>{info}</h2>
+        ))
+      }
     </div>
   );
 }

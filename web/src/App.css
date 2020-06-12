@@ -4,6 +4,21 @@ h1 {
   margin-top: 2%;
 }
 
+h2 {
+  margin-top: 2%;
+  width: 80%;
+  margin-left: 10%;
+  font-size: 14px;
+  color: #0f0f4a;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #fff;
+}
+
+h2+h2 {
+  margin-top: 0;
+}
+
 .dirInput {
   width: 80%;
   margin: 5% 10%;
