@@ -16,10 +16,17 @@ routes.post('/main', (request, response) => {
           console.log(word);
           if (word === '') return;
           if (word === '-') return word;
+          if (word.toLowerCase() === 'deau') return 'DEAU';
+          if (word.toLowerCase() === 'kaines') return 'kAINES';
+          if (word.toLowerCase() === 's.e.f.') return 'S.E.F.';
           if (word.endsWith('-')) return word.replace('-', '') + ' -';
           if (word.startsWith('-')) return '- ' + word.replace('-', '');
           if (word.toLowerCase() === 'feat.') return word.toLowerCase();
           if (word.match(/[0-9]-/)) return word;
+          if (word.startsWith('(')) {
+            const firstLetter = word.substr(1, 1).toUpperCase();
+            return '(' + firstLetter + word.substr(2, word.length).toLowerCase();
+          }
           const firstLetter = word.substr(0, 1).toUpperCase();
           return firstLetter + word.substr(1, word.length).toLowerCase();
         })
