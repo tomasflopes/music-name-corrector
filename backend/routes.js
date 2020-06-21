@@ -16,7 +16,6 @@ routes.post('/main', (request, response) => {
 
         const sanitizedData = dataArray.map(music =>
           music.map(word => {
-            console.log(word);
             if (word === '') return;
             if (word === '-') return word;
             if (word.toLowerCase() === 'deau') return 'DEAU';
