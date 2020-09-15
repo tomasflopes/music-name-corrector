@@ -28,12 +28,22 @@ export default function Exception() {
 
   return (
     <div>
-      <label>From: </label>
-      <input type='text' value={from} onChange={e => setFrom(e.target.value)} />
-      <label>To: </label>
-      <input type='text' value={to} onChange={e => setTo(e.target.value)} />
+      <div className='form'>
+        <div className='field'>
+          <label>From: </label>
+          <input
+            type='text'
+            value={from}
+            onChange={e => setFrom(e.target.value)}
+          />
+        </div>
+        <div className='field'>
+          <label>To: </label>
+          <input type='text' value={to} onChange={e => setTo(e.target.value)} />
+        </div>
 
-      <button onClick={addException}>Submit</button>
+        <button onClick={addException}>Submit</button>
+      </div>
 
       <div className='data'>
         {data.map(exception => (
